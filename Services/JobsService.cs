@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using gregslist_api.Models;
 
@@ -17,6 +18,9 @@ namespace gregslist_api.Controllers
       return _repo.Get();
     }
 
-
+    public Job Create(Job newJob)
+    {
+      return _repo.Create(newJob);
+    }
   }
 }

@@ -20,5 +20,16 @@ namespace gregslist_api.Controllers
       string sql = "SELECT * FROM jobs";
       return _db.Query<Job>(sql);
     }
+
+    public Job Create(Job newJob)
+    {
+      string sql = @"INSERT INTO jobs
+      (company, description, hours, rate, userId)
+      VALUES
+      (@company, @description, @hours, @rate, @userID);
+      SELECT LAST_INSERT_ID();";
+      newJob.Id = _db.ExecuteScalar<int>(sql, newJob);
+      return newJob;
+    }
   }
 }
