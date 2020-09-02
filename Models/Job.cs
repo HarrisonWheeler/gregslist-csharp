@@ -17,6 +17,7 @@ namespace gregslist_api.Models
     [Required]
 
     public int Rate { get; set; }
+    [Required]
 
     public string UserId { get; set; }
 
